@@ -1,0 +1,32 @@
+<odoo>
+
+    <data>
+
+        <record id="sale_unit_price_form_inherit" model="ir.ui.view">
+
+            <field name="name">sale.unit.price.order</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+
+                <xpath expr="//page[@name='order_lines']//field[@name='order_line']//tree//field[@name='price_unit']"
+                       position="attributes">
+
+                   <attribute name="readonly">1</attribute>
+                </xpath>
+                <!--                 <field name="vat" position="attributes">-->
+<!--                    <attribute name="required">1</attribute>-->
+<!--                </field>-->
+
+
+
+
+            </field>
+
+        </record>
+
+
+
+    </data>
+</odoo>

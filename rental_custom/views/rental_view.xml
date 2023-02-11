@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <record id="rental_sale_tree_inherit_report_id" model="ir.ui.view">
+            <field name="name">rental.tree.inherit</field>
+            <field name="model">sale.rental.report</field>
+            <field name="inherit_id" ref="sale_renting.sale_rental_report_view_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="ref"/>
+                </xpath>
+
+            </field>
+
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+         <record id="seq_student_registration" model="ir.sequence">
+            <field name="name">student.registration</field>
+            <field name="code">student.registration</field>
+            <field name="prefix">RG</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"></field>
+        </record>
+
+
+    </data>
+</odoo>

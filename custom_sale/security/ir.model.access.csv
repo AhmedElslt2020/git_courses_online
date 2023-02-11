@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+sale.order.inherit.access,sale_order_inherit_aceess,model_sale_order,base.group_user,1,1,1,1
+sale.order.line.inherit.access,sale_order_line_inherit_aceess,model_sale_order_line,base.group_user,1,1,1,1
+
