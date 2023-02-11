@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <data>
+
+        <record id="action_female_patient"
+                model="ir.actions.act_window">
+            <field name="name">female patients</field>
+            <field name="res_model">hospital.patient</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="context">{'default_gender':'female', 'default_age':25 }</field>
+
+            <field name="domain">[('gender','=','female')]</field>
+
+        </record>
+
+
+        <menuitem id="menu_female_patient"
+                  name="female patient"
+                  parent="menu_patient_master"
+                  action="action_female_patient"/>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,98 @@
+<odoo>
+    <data>
+        <template id="hms.hms_patient_template">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <t t-foreach="docs" t-as="o">
+                            <img t-att-src="image_data_uri(o.image)"
+                                 t-if="o.image"
+                                 alt="not found"
+                                 style="width: 250px; height: 150px;"
+                              />
+
+
+                            <br>
+                                <h7>Name:
+                                    <span t-esc="o.name"/>
+                                </h7>
+                            </br>
+                            <br>
+                                <h7>Age:
+                                    <span t-esc="o.Age"/>
+                                </h7>
+                            </br>
+
+                            <t t-foreach="o.depart_id" t-as="l">
+                                <br>
+                                    <h7>Department:
+                                        <span t-field="l.name"/>
+                                    </h7>
+                                </br>
+                            </t>
+
+                            <t t-foreach="o.doctor_id" t-as="n">
+                                <br>
+                                    <h7>doctor:
+                                        <span t-field="n.name"/>
+                                    </h7>
+                                </br>
+                            </t>
+
+                            <br>
+                                <h7>Birth date:
+                                    <span t-raw="o.Birth_data"/>
+                                </h7>
+                            </br>
+                            <br>
+                                <h7>PCR:
+                                    <span t-raw="o.Pcr"/>
+                                </h7>
+                            </br>
+                            <br>
+                                <h7>Blood Type:
+                                    <span t-raw="o.Blood_down"/>
+                                </h7>
+                            </br>
+                            <br>
+                                <h7>Email:
+                                    <span t-raw="o.email"/>
+                                </h7>
+                            </br>
+
+
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>User</th>
+                                    <th>Date</th>
+                                    <th>info</th>
+
+
+                                </tr>
+                                <t t-foreach="o.history_ids" t-as="s">
+                                    <tr>
+                                        <td>
+                                            <span t-raw="s.create_uid"/>
+                                        </td>
+                                        <td>
+                                            <span t-raw="s.create_date"/>
+                                        </td>
+                                        <td>
+                                            <span t-raw="s.description"/>
+                                        </td>
+
+
+                                    </tr>
+                                </t>
+                            </table>
+                        </t>
+
+                    </div>
+
+                </t>
+            </t>
+
+        </template>
+
+    </data>
+</odoo>

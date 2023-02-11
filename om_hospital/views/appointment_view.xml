@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+<!--        <record model="ir.ui.view" id="view_hospital_appointment_yuer_form">-->
+<!--            <field name="name">hospital</field>-->
+<!--            <field name="model">hospital.appointment</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <form>-->
+
+<!--                        <field name="patient_id"/>-->
+<!--                        <field name="name"/>-->
+<!--                </form>-->
+
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="action_appointment_patient"
+                model="ir.actions.act_window">
+            <field name="name">appointment.menu</field>
+            <field name="res_model">hospital.appointment</field>
+            <field name="view_mode">tree,kanban,form</field>
+        </record>
+
+        <menuitem id="menu_appointment_patient"
+                  name="appointment_patient"
+                  parent="menu_hospital_root"
+                  action="action_appointment_patient"/>
+    </data>
+</odoo>
+

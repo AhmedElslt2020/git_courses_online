@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+
+         <record id="history_form_view" model="ir.ui.view">
+
+            <field name="name">history form view</field>
+            <field name="model">hms.history</field>
+
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="description" />
+                         <field name="create_uid" />
+                        <field name="create_date" />
+
+                    </group>
+
+                </form>
+            </field>
+         </record>
+
+
+        <record id="history_action"
+                model="ir.actions.act_window">
+
+            <field name="name">history</field>
+            <field name="res_model">hms.history</field>
+
+        </record>
+         <menuitem id="history_root" name="history"  parent="hospital_root" action="history_action"/>
+
+    </data>
+
+</odoo>

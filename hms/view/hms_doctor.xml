@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+<!--            <record id="doctor_form_view" model="ir.ui.view">-->
+
+<!--            <field name="name">doctor form view</field>-->
+<!--            <field name="model">hms.doctor</field>-->
+
+<!--            <field name="arch" type="xml">-->
+<!--                <form>-->
+<!--                    <group>-->
+<!--                        <field name="name"/>-->
+<!--                        <field name="last_name"/>-->
+<!--                        <field name="image" widget="image"/>-->
+<!--                        <field name="department_id"/>-->
+
+<!--                    </group>-->
+<!--                </form>-->
+<!--            </field>-->
+<!--             </record>-->
+
+            <record id="doctor_action" model="ir.actions.act_window">
+                <field name="name">doc action</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">hms.doctor</field>
+                <field name="view_mode">tree,form</field>
+            </record>
+<!--         <record id="doctor_action"-->
+<!--                model="ir.actions.act_window">-->
+
+<!--            <field name="name">doctor</field>-->
+<!--            <field name="res_model">hms.doctor</field>-->
+<!--             <field name="view_mode">kanban,tree,form</field>-->
+
+<!--        </record>-->
+
+        <menuitem id="doctor_root" name="doctor"  action="doctor_action"
+                               />
+
+
+<!--              groups="hms.hms_manager_group" -->
+
+    </data>
+</odoo>

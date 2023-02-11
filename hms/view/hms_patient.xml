@@ -1,0 +1,129 @@
+<odoo>
+
+
+    <data>
+        <record id="crm_form_inherit" model="ir.ui.view">
+
+            <field name="name">crm form inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="vat" position="attributes">
+                    <attribute name="required">1</attribute>
+                </field>
+
+                <field name="ref" position="before">
+                    <group>
+                        <field name="patient_id"/>
+                    </group>
+                </field>
+            </field>
+        </record>
+
+
+        <record id="crm_tree_inherit" model="ir.ui.view">
+
+            <field name="name">crm tree inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <field name="email" position="after">
+                    <field name="website"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="hospital_form_view" model="ir.ui.view">
+            <field name="name">hospital_form</field>
+            <field name="model">hms.patient</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button string="good" type="object" name="set_good"/>
+                        <button string="fair" type="object" name="set_fair"/>
+                        <button string="serious" type="object" name="set_serious"/>
+                        <button string="back To Undetermined" type="object" name="set_back"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group string="basic info">
+
+                                <field name="name"/>
+                                <field name="Last_name"/>
+                                <field name="email"/>
+
+
+                                <field name="Birth_data"/>
+
+                                <field name="Blood_down"/>
+                                <field name="depart_id"
+                                       domain="[('is_open','=',True)]"
+
+                                />
+                                <field name="dep_capacity"/>
+                                <field name="doctor_id" widget="many2many_tags"
+                                       attrs="{'readonly':[('depart_id','=',False)]
+                               }"
+                                       groups="hms.hms_manager_group"
+
+                                />
+
+
+                            </group>
+                            <group string="extra info">
+                                <field name="Pcr"
+
+                                />
+                                <field name="Cr_ratio"
+                                       attrs="{'required':[('Pcr','=',False)]
+                             }"
+
+                                />
+                                <field name="Address"/>
+                                <field name="Age"/>
+
+                                <field name="image" widget="image"/>
+
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Patient History">
+                                <field name="history_ids">
+                                    <tree>
+                                        <field name="create_uid"/>
+                                        <field name="create_date"/>
+                                        <field name="description"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="History_data"
+                                  attrs="{'invisible':[('Age','&lt;',50)]}">
+                                <group>
+                                    <field name="History_data"/>
+
+                                </group>
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="patient_action"
+                model="ir.actions.act_window"
+        >
+            <field name="name">patient</field>
+            <field name="res_model">hms.patient</field>
+             <field name="view_mode">kanban,tree,form</field>
+
+        </record>
+
+        <menuitem id="hospital_root" name="hospital"/>
+        <menuitem id="patient_root" name="patient" parent="hospital_root" action="patient_action"/>
+
+
+    </data>
+</odoo>
