@@ -1,0 +1,57 @@
+1-git init
+
+2-git add schoo 
+
+first 3 letter on name folder
+
+3-git status
+
+4-git commit -m "add new task"
+
+5- git config --global user.email "ahmedelslt55@gmail.com"  
+
+6- git config --global user.name "AhmedElslt2020"
+
+7- git commit -m "add new task"
+
+........................................................
+
+make repo
+
+
+
+8-git remote add origin https://github.com/AhmedElslt2020/school_system.git
+
+9-git branch -M main
+
+10-git push -u origin main
+
+
+
+when we need us afro
+
+
+
+git status
+
+git add .
+
+git commit -m "add new task"
+
+git pull
+
+git push 
+
+    
+
+
+
+
+
+
+
+
+
+
+
+  
