@@ -24,6 +24,10 @@
                                 <field name="birth_date"
                                        attrs="{'invisible':[('gender','=','f')]}"/>
                                 <field name="salary"/>
+                                <field name="salary" widget="float_toggle" options='{"range":[0,1,2,3,4,5,6,7,8,9,10,]}'/>
+                                <field name="salary" options='{"type":"number","step":1}'/>
+                                
+                                
                                 <field name="tax"/>
 
                                 <field name="net_salary"/>
