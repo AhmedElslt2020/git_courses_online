@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<templates>
+<!--    that take name that and add in js registery-->
+   <t t-name="button_academic.ListView.Buttons" t-inherit="web.ListView.Buttons">
+       <xpath expr="//*[@class='btn btn-primary o_list_button_add']" position="after">
+           <button type="button" class="btn btn-primary" style="margin-left: 10px;"  t-on-click="OnClick">
+               Class Distribution
+           </button>
+<!--onclick_equal name of function in folder in js-->
+           <button type="button" class="btn btn-primary" style="margin-left: 10px;" t-on-click="OnClickCommittees">
+               Committees Distribution
+           </button>
+       </xpath>
+   </t>
+</templates>
+

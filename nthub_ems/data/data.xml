@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="nthub_ems.maxyro" model="ir.config_parameter">
+            <field name="key">nthub_ems.maxyro</field>
+            <field name="value">1</field>
+        </record>
+    </data>
+</odoo>
+
+

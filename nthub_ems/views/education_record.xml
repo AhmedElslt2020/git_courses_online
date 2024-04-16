@@ -1,0 +1,109 @@
+<odoo>
+    <data>
+
+        <!--define a view search -->
+        <record model="ir.ui.view" id="view_education_record_search">
+            <field name="name">education.record.search</field>
+            <field name="model">education.record</field>
+            <field name="arch" type="xml">
+                <search>
+<!--                    <field name="max_year"/>-->
+                    <field name="yro"/>
+                    <filter string="Filter by year greater than value" name="max_year"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Level" name="group_by_level_id"
+                                context="{'group_by': 'level_id'}"/>
+                        <filter string="Department" name="group_by_department_id"
+                                context="{'group_by': 'department_id'}"/>
+                        <filter string="Division" name="group_by_sub_department_id"
+                                context="{'group_by': 'sub_department_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="education_record_view_tree" model="ir.ui.view">
+            <field name="name">education_record_view_tree</field>
+            <field name="model">education.record</field>
+            <field name="arch" type="xml">
+                <tree multi_edit="1" string="level" js_class="button_academic_in_tree">
+                    <field name="student_id" options="{'no_open': True, 'no_create': True}"/>
+                    <field name="yro" widget="text"/>
+                    <field name="level_id"/>
+                    <field name="department_id"/>
+                    <field name="sub_department_id"/>
+                    <field name="eds"/>
+                    <field name="class_number"/>
+                    <field name="sitting_number"/>
+                    <field name="committees_number"/>
+                    <field name="chair_number"/>
+                    <field name="total_mark"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="education_record_view_form" model="ir.ui.view">
+            <field name="name">education_record_view_form</field>
+            <field name="model">education.record</field>
+            <field name="arch" type="xml">
+                <form string="education_record_form">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="yro" widget="char"/>
+                                <field name="is_readonly" invisible="1"/>
+                                <field name="student_id" options="{'no_open': True, 'no_create': True}"
+                                       attrs="{'readonly':[('is_readonly','=',True)]}"/>
+                                <field name="level_id" options="{'no_open': True, 'no_create': True}"
+                                       attrs="{'readonly':[('is_readonly','=',True)]}"/>
+                                <field name="department_id" options="{'no_open': True, 'no_create': True}"
+                                       attrs="{'readonly':[('is_readonly','=',True)]}"/>
+                                <field name="sub_department_id" options="{'no_open': True, 'no_create': True}"
+                                       attrs="{'readonly':[('is_readonly','=',True)]}"/>
+                                <field name="eds"/>
+                            </group>
+                            <group>
+                                <field name="total_mark"/>
+                                <field name="year_percentage"/>
+                                <field name="class_number"/>
+                                <field name="sitting_number"/>
+                                <field name="committees_number"/>
+                                <field name="chair_number"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Marks Details">
+                                <field name="marks_ids">
+                                    <tree editable="bottom">
+                                        <field name="subject_id_domain" invisible="1"/>
+                                        <field name="subject_id" domain="subject_id_domain" required="1" attrs="{'readonly':[('parent.is_readonly','=',True)]}"/>
+                                        <field name="oral_mark"/>
+                                        <field name="term_mark"/>
+                                        <field name="total_mark"/>
+                                        <field name="percentage" widget="percentage"/>
+                                        <field name="degree"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="education_record_action" model="ir.actions.act_window">
+            <field name="name">Academic Records</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">education.record</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context"
+                   eval="{'search_default_group_by_level_id': 1, 'search_default_group_by_department_id': 1, 'search_default_group_by_sub_department_id': 1,}"/>
+        </record>
+    </data>
+</odoo>
+

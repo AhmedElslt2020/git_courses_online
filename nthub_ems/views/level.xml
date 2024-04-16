@@ -1,0 +1,60 @@
+<odoo>
+    <data>
+
+        <record id="level_form_view" model="ir.ui.view">
+            <field name="name">level_form</field>
+            <field name="model">level</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Enter Name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="alternative_name"/>
+                                <field name="sum_mark_level"/>
+                            </group>
+                        </group>
+<!--                        <notebook>-->
+<!--                            <page string="Subjects">-->
+<!--                                <field name="subject_line_ids">-->
+<!--                                    <tree editable="bottom">-->
+<!--                                        <field name="name"/>-->
+<!--                                        <field name="final_full_mark" sum="final_full_mark"/>-->
+<!--                                    </tree>-->
+<!--                                </field>-->
+<!--                            </page>-->
+<!--                        </notebook>-->
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="level_view_tree" model="ir.ui.view">
+            <field name="name">level_view_tree</field>
+            <field name="model">level</field>
+            <field name="arch" type="xml">
+                <tree multi_edit="1" string="level">
+                    <field name="name"/>
+                    <field name="alternative_name"/>
+                    <field name="sum_mark_level"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="level_action" model="ir.actions.act_window">
+            <field name="name">level</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">level</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>
